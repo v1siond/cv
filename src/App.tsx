@@ -62,6 +62,7 @@ export default class App extends Mixins(SoundMixing) {
   }
 
   public render (h: any) {
+    console.log(process.env)
     if (this.renderT) {
       return (
         <div id='app'>

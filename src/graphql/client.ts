@@ -7,7 +7,7 @@ import { setContext } from 'apollo-link-context'
 Vue.use(VueApollo)
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:4000/'
+  uri: process.env.NODE_ENV === 'production' ? 'http://alex-cv-api.herokuapp.com/' : 'http://localhost:4000/'
 })
 
 const authLink = setContext((_, { headers }) => {
