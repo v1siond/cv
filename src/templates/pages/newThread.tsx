@@ -1,7 +1,7 @@
 import TabPanel from '../components/editorTabPanel'
 
 export default ({ props, children }: any) => {
-  if (props.data.getLogin) {
+  if (props.data.getLogin && props.data.getAdmin) {
     return (
       <main class='section new-post'>
         <TabPanel
@@ -13,6 +13,10 @@ export default ({ props, children }: any) => {
       </main>
     )
   } else {
-    return <div>You must be logged to perform this action.</div>
+    return (
+      <main class='section new-post'>
+        <h2>Admin zone only.</h2>
+      </main>
+    )
   }
 }

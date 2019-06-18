@@ -10,7 +10,7 @@ const state: AppState = {
   sound: false,
   sounds: undefined,
   playAudio: undefined,
-  admin: false
+  admin: localStorage.getItem('admin') === 'true' || false
 }
 
 export default state

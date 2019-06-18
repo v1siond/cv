@@ -32,6 +32,7 @@ const Query = new Queries()
 })
 export default class Threads extends Vue {
   @Getter('getLogin') getLogin: any
+  @Getter('getAdmin') getAdmin: any
   @Mutation('setTitle') setTitle
   @Mutation('setBack') setBack
   loading: boolean = true
@@ -47,6 +48,7 @@ export default class Threads extends Vue {
           data={{
             ...this.$data,
             getLogin: this.getLogin,
+            getAdmin: this.getAdmin,
             threads:
               this.category && this.category.threads
                 ? this.category.threads

@@ -2,21 +2,26 @@ import { Vue } from 'vue-property-decorator'
 import Component from 'vue-class-component'
 import Mutations from '../graphql/Mutations'
 import SignupTemplate from '../templates/layouts/signup'
-const Mutation = new Mutations()
+const MutationC = new Mutations()
+import {
+  Mutation
+} from 'vuex-class'
 
 @Component({
   name: 'signup'
 })
 export default class Signup extends Vue {
-  email: string = ''
-  password: string = ''
-  name: string = ''
-  username: string = ''
+  @Mutation('setLogin') public setLogin
+  @Mutation('setAdmin') public setAdmin
+  public email: string = ''
+  public password: string = ''
+  public name: string = ''
+  public username: string = ''
 
-  signup (name, email, password, username) {
+  public signup (name, email, password, username) {
     this.$apollo
       .mutate({
-        mutation: Mutation.createUser(),
+        mutation: MutationC.createUser(),
         variables: {
           email,
           password,
@@ -33,25 +38,33 @@ export default class Signup extends Vue {
       })
   }
 
-  signin (email, password) {
+  public signin (email, password) {
     this.$apollo
       .mutate({
-        mutation: Mutation.authenticate(),
+        mutation: MutationC.authenticate(),
         variables: {
           email,
           password
         }
       })
       .then((response) => {
+        this.setLogin(true)
+        if (email === 'alex@smoothterminal.com') {
+          localStorage.setItem('admin', 'true')
+          this.setAdmin(true)
+        } else {
+          localStorage.removeItem('admin')
+          this.setAdmin(false)
+        }
         localStorage.setItem('token', response.data.authenticate)
-        this.$router.push('/')
+        this.$router.push('/blog')
       })
       .catch((error) => {
         console.log(error)
       })
   }
 
-  render (h: any) {
+  public render (h: any) {
     return (
       <SignupTemplate
         class='section'

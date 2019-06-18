@@ -81,6 +81,7 @@ export default class Categories extends Vue {
         class='section'
         data={{
           ...this.$data,
+          getAdmin: this.getAdmin,
           categories:
             this.categories &&
             this.categories.entries &&
@@ -88,8 +89,7 @@ export default class Categories extends Vue {
               ? this.categories.entries
               : [],
           getLogin: this.getLogin,
-          totalPages: this.categories ? this.categories.totalPages : 0,
-          getAdmin: this.getAdmin
+          totalPages: this.categories ? this.categories.totalPages : 0
         }}
         methods={{
           apollo: this.$apollo,

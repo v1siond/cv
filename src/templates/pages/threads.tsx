@@ -8,7 +8,7 @@ export default ({ props, data, children }: any) => {
         list={props.data.threads}
         routeHandler={props.methods.routeHandler}
       />
-      {props.data.getLogin && (
+      {props.data.getLogin && props.data.getAdmin && (
         <routerLink
           class='pure-button -fixed'
           to={`/blog/categories/${props.data.category.id}/new-thread/`}

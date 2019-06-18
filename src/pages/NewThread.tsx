@@ -74,7 +74,6 @@ export default class NewThread extends Vue {
       this.setTitle('New thread')
       this.setBack(true)
     } else {
-      alert('Admin place only')
       setTimeout(() => {
         this.$router.push('/blog')
       }, 2000)
@@ -88,7 +87,8 @@ export default class NewThread extends Vue {
           data={{
             ...this.$props,
             ...this.$data,
-            getLogin: this.getLogin
+            getLogin: this.getLogin,
+            getAdmin: this.getAdmin
           }}
           methods={{
             showPreview: this.showPreview,

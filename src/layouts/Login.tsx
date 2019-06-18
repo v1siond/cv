@@ -28,15 +28,17 @@ export default class Login extends Vue {
       .then((response) => {
         if (response.data.authenticate) {
           this.setLogin(true)
-          if (this.email === 'alex@smoothterminal.com') {
+          if (email === 'alex@smoothterminal.com') {
+            localStorage.setItem('admin', 'true')
             this.setAdmin(true)
           } else {
+            localStorage.removeItem('admin')
             this.setAdmin(false)
           }
           localStorage.setItem('token', response.data.authenticate)
           alert('Welcome')
         }
-        this.$router.push('/')
+        this.$router.push('/blog')
       })
       .catch((error) => {
         alert(error)
