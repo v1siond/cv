@@ -16,6 +16,7 @@ export default class App extends Mixins(SoundMixing) {
   public  toolbarHeight: number = 55
   public toolbarBlog: boolean = false
   public mobile: boolean = false
+  public renderT: boolean = false
   $refs!: {
     toolbar: HTMLFormElement
   }
@@ -43,10 +44,12 @@ export default class App extends Mixins(SoundMixing) {
   }
 
   public mounted () {
-    console.log(process.env)
     this.checkLogin()
     this.checkToolbarHeight()
     window.addEventListener('resize', this.checkToolbarHeight)
+    setTimeout(() => {
+      this.renderT = true
+    }, 3000)
   }
 
   public beforeDestroy () {
@@ -59,23 +62,27 @@ export default class App extends Mixins(SoundMixing) {
   }
 
   public render (h: any) {
-    return (
-      <div id='app'>
-        <Toolbar playAudio={this.playAudio} mobile={this.mobile} blog={this.toolbarBlog || false} ref='toolbar' />
-        <router-view playAudio={this.playAudio} style={this.toolbarBlog ? `min-height: calc( 100vh - ${this.toolbarHeight}px); height: unset;` : 'height: 100vh;'} />
-        <footer class='footer'>
-          <article class='about'>
-            <h2 class='game-title -credits'>About</h2>
-            <figure />
-            <p>Alexander Pulido is a Full Stack developer who was born in Roma, studied in Venezuela and now lives and Work in Arequipa, Perú.
-            He loves to build web apps and his specialty is frontend development in javascript enviroments.</p>
-          </article>
-          <article class='legal'>
-            &#64; Alexander Pulido. All Rights Reserved.
-          </article>
-        </footer>
-      </div>
-    )
+    if (this.renderT) {
+      return (
+        <div id='app'>
+          <Toolbar playAudio={this.playAudio} mobile={this.mobile} blog={this.toolbarBlog || false} ref='toolbar' />
+          <router-view playAudio={this.playAudio} style={this.toolbarBlog ? `min-height: calc( 100vh - ${this.toolbarHeight}px); height: unset;` : 'height: 100vh;'} />
+          <footer class='footer'>
+            <article class='about'>
+              <h2 class='game-title -credits'>About</h2>
+              <figure />
+              <p>Alexander Pulido is a Full Stack developer who was born in Roma, studied in Venezuela and now lives and Work in Arequipa, Perú.
+              He loves to build web apps and his specialty is frontend development in javascript enviroments.</p>
+            </article>
+            <article class='legal'>
+              &#64; Alexander Pulido. All Rights Reserved.
+            </article>
+          </footer>
+        </div>
+      )
+    } else {
+      return null
+    }
   }
 
   @Watch('$route', { immediate: true, deep: true })
