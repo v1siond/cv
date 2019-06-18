@@ -31,14 +31,14 @@ const Query = new Queries()
   }
 })
 export default class Threads extends Vue {
-  @Getter('getLogin') getLogin: any
-  @Getter('getAdmin') getAdmin: any
-  @Mutation('setTitle') setTitle
-  @Mutation('setBack') setBack
-  loading: boolean = true
-  category: any
+  @Getter('getLogin') public getLogin: any
+  @Getter('getAdmin') public getAdmin: any
+  @Mutation('setTitle') public setTitle
+  @Mutation('setBack') public setBack
+  public loading: boolean = true
+  public category: any
 
-  render (h: any) {
+  public render (h: any) {
     if (this.category) {
       this.setTitle(this.category.title || 'Threads')
       this.setBack(true)

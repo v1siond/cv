@@ -17,12 +17,24 @@ export default class App extends Mixins(SoundMixing) {
   public toolbarBlog: boolean = false
   public mobile: boolean = false
   public renderT: boolean = false
+  public style: string = ''
   $refs!: {
     toolbar: HTMLFormElement
   }
 
+  public getBlogLayout () {
+    const urls: any[] = ['login', 'signup']
+    let blogLayout: boolean = false
+    urls.map((urlName) => {
+      if (urlName === this.$router.currentRoute.name) {
+        blogLayout = true
+      }
+    })
+    return blogLayout
+  }
+
   public checkLogin (): void {
-    if (this.$router.currentRoute.fullPath.includes('blog')) {
+    if (this.$router.currentRoute.fullPath.includes('blog') || this.getBlogLayout()) {
       this.toolbarBlog = true
     } else {
       this.toolbarBlog = false
@@ -52,6 +64,15 @@ export default class App extends Mixins(SoundMixing) {
     }, 3000)
   }
 
+  public getStyle () {
+    this.style = ''
+    if (this.toolbarBlog) {
+      this.style = `height: calc(100vh - ${this.toolbarHeight}px);`
+    } else {
+      this.style = 'height: 100vh;'
+    }
+  }
+
   public beforeDestroy () {
     window.removeEventListener('resize', this.checkToolbarHeight)
   }
@@ -66,7 +87,7 @@ export default class App extends Mixins(SoundMixing) {
       return (
         <div id='app'>
           <Toolbar playAudio={this.playAudio} mobile={this.mobile} blog={this.toolbarBlog || false} ref='toolbar' />
-          <router-view playAudio={this.playAudio} style={this.toolbarBlog ? `min-height: calc( 100vh - ${this.toolbarHeight}px); height: unset;` : 'height: 100vh;'} />
+          <router-view playAudio={this.playAudio} style={this.style} />
           <footer class='footer'>
             <article class='about'>
               <h2 class='game-title -credits'>About</h2>
@@ -87,6 +108,8 @@ export default class App extends Mixins(SoundMixing) {
 
   @Watch('$route', { immediate: true, deep: true })
     onUrlChange (newVal: any) {
+      this.checkToolbarHeight()
+      this.getStyle()
       this.checkLogin()
       if (this.getSounds) {
         this.songNames.map((soundName) => {

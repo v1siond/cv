@@ -11,7 +11,12 @@ export default ({ props }: any) => {
                 <i class='fas fa-arrow-left' />
               </a>
             )}
-            <p class='game-title -small'>{props.data.getTitle}</p>
+            {props.data.getTitle === 'Alexander Pulido' ? (
+              <routerLink class='game-title -small' to='/blog' title='Forum'>
+                {props.data.getTitle}
+              </routerLink>) : (
+              <p class='game-title -small'>{props.data.getTitle}</p>
+            )}
           </article>
           {props.data.getLogin ? (
             <a
