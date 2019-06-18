@@ -2,7 +2,7 @@ export default ({ props }: any) => {
   return (
     <main class='section -login'>
       <section class='parallax-background -levelSelection'>
-        <h1 class='game-title'>Forum with Vue, TypeScript and GraphQL</h1>
+        <h1 class='game-title'>Login</h1>
         <div class='contact-form'>
           <input
             class='input pure-input-1'

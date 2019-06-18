@@ -30,7 +30,7 @@ export default ({ props, children }: any) => {
                 class={props.blog ? '-selected game-start-button' : 'game-start-button'}
                 onmouseenter={() => props.methods.buttonSelected('blog')}
               >
-                Blog
+                Forum
               </a>
             </span>
           </header>

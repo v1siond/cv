@@ -63,7 +63,7 @@ export default ({ props }: any) => {
           <a onmouseenter={() => props.methods.buttonSelected()} onClick={() => props.pushRoute('/interactive-resume')}>Interactive-resume</a>
         </li>
         <li class='link'>
-          <a onmouseenter={() => props.methods.buttonSelected()} onClick={() => props.pushRoute('/blog')}>Blog</a>
+          <a onmouseenter={() => props.methods.buttonSelected()} onClick={() => props.pushRoute('/blog')}>Forum</a>
         </li>
         <li class='link'>
           <a onmouseenter={() => props.methods.buttonSelected()} onClick={() => props.pushRoute('/credits')}>Credits</a>
