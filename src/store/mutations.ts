@@ -28,6 +28,9 @@ const mutations: MutationTree<AppState> = {
   },
   setPlayAudio (state, value: any) {
     state.playAudio = value
+  },
+  setAdmin (state, value: any) {
+    state.admin = value
   }
 }
 

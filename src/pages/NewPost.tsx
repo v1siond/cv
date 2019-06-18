@@ -101,7 +101,7 @@ export default class NewPost extends Vue {
             </button>
           </div>
         ) : (
-            <vue-markdown class='markdown-style -padding'>
+            <vue-markdown typographer class='markdown-style -padding'>
               {this.postBody}
             </vue-markdown>
           )}

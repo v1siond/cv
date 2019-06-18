@@ -30,6 +30,7 @@ const Query = new Queries()
 })
 export default class Categories extends Vue {
   @Getter('getLogin') public getLogin: any
+  @Getter('getAdmin') getAdmin: any
   @Mutation('setTitle') public setTitle
   @Mutation('setBack') public setBack
 
@@ -87,7 +88,8 @@ export default class Categories extends Vue {
               ? this.categories.entries
               : [],
           getLogin: this.getLogin,
-          totalPages: this.categories ? this.categories.totalPages : 0
+          totalPages: this.categories ? this.categories.totalPages : 0,
+          getAdmin: this.getAdmin
         }}
         methods={{
           apollo: this.$apollo,

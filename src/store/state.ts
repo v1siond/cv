@@ -9,7 +9,8 @@ const state: AppState = {
   time: 0,
   sound: false,
   sounds: undefined,
-  playAudio: undefined
+  playAudio: undefined,
+  admin: false
 }
 
 export default state

@@ -1,4 +1,3 @@
-import Toolbar from '../../components/Toolbar'
 import PostsList from '../components/list'
 
 export default ({ props }: any) => {

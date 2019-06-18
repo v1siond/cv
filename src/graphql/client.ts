@@ -10,8 +10,6 @@ const httpLink = new HttpLink({
   uri: process.env.NODE_ENV === 'production' ? 'https://alex-cv-api.herokuapp.com/' : 'http://localhost:4000/'
 })
 
-console.log(httpLink)
-
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('token')

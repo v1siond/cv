@@ -37,6 +37,10 @@ const getters: GetterTree<AppState, RootState> = {
   playAudio (state) {
     const { playAudio } = state
     return playAudio
+  },
+  getAdmin (state) {
+    const { admin } = state
+    return admin
   }
 }
 

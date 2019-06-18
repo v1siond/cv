@@ -49,7 +49,7 @@ export default ({ props }: any) => {
                     </dl>
                   )}
                   {props.post && (
-                    <vue-markdown class='markdown-style'>
+                    <vue-markdown typographer class='markdown-style'>
                       {item.body}
                     </vue-markdown>
                   )}

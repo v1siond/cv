@@ -1,13 +1,12 @@
 import CategoryForm from '../components/form'
 import CategoryList from '../components/list'
 import Pagination from '../components/pagination'
-import Toolbar from '../../components/Toolbar'
 
 export default ({ props, data, children }: any) => {
   return (
     <main {...data}>
       {children}
-      {props.data.getLogin && (
+      {props.data.getLogin && props.data.getAdmin && (
         <CategoryForm
           getLogin={props.data.getLogin}
           apollo={props.methods.apollo}

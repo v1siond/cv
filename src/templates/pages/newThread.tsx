@@ -1,4 +1,3 @@
-import Toolbar from '../../components/Toolbar'
 import TabPanel from '../components/editorTabPanel'
 
 export default ({ props, children }: any) => {

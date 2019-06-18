@@ -11,5 +11,6 @@ export interface AppState {
   time: number,
   sound: boolean,
   sounds: any,
-  playAudio: any
+  playAudio: any,
+  admin: boolean
 }

@@ -11,11 +11,12 @@ const MutationF = new Mutations()
   name: 'login'
 })
 export default class Login extends Vue {
-  email: string = ''
-  password: string = ''
-  @Mutation('setLogin') setLogin: any
+  public email: string = ''
+  public password: string = ''
+  @Mutation('setLogin') public setLogin
+  @Mutation('setAdmin') public setAdmin
 
-  signin (email, password): void {
+  public signin (email, password): void {
     this.$apollo
       .mutate({
         mutation: MutationF.authenticate(),
@@ -27,6 +28,11 @@ export default class Login extends Vue {
       .then((response) => {
         if (response.data.authenticate) {
           this.setLogin(true)
+          if (this.email === 'alex@smoothterminal.com') {
+            this.setAdmin(true)
+          } else {
+            this.setAdmin(false)
+          }
           localStorage.setItem('token', response.data.authenticate)
           alert('Welcome')
         }
@@ -38,7 +44,7 @@ export default class Login extends Vue {
       })
   }
 
-  render (h: any) {
+  public render (h: any) {
     return (
       <LoginTemplate
         class='section'
