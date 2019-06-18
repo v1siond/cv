@@ -11,13 +11,13 @@ export default ({ props, children }: any) => {
               <p>Alexander Pulido</p>
             </h1>
             <span>
-              <a
+              {/*<a
                 onClick={() => props.router.push('/interactive-resume')}
                 class={props.interactive ? '-selected game-start-button' : 'game-start-button'}
                 onmouseenter={() => props.methods.buttonSelected('interactive')}
               >
                 Start Interactive Resume
-              </a>
+              </a>*/}
               <a
                 onClick={() => props.router.push('/static-resume')}
                 class={props.static ? '-selected game-start-button' : 'game-start-button'}
