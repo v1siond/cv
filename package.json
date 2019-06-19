@@ -16,6 +16,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@vue/cli-service": "^3.1.1",
     "@babel/core": "^7.4.0",
     "@sendgrid/mail": "^6.4.0",
     "@types/graphql": "^14.0.3",
@@ -57,7 +58,6 @@
     "@vue/cli-plugin-eslint": "^3.1.1",
     "@vue/cli-plugin-typescript": "^3.1.1",
     "@vue/cli-plugin-unit-jest": "^3.1.1",
-    "@vue/cli-service": "^3.1.1",
     "@vue/eslint-config-typescript": "^3.1.0",
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-eslint": "^10.0.1",
