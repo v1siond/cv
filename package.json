@@ -14,7 +14,6 @@
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
     "deploy": "gh-pages -d dist",
-    "postinstall": "yarn build",
     "start": "node server.js"
   },
   "dependencies": {
