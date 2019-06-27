@@ -4,7 +4,7 @@
     animation walkingSm 15s forwards
     background url('../images/walking.gif') center center no-repeat
     background-size 100% 100%
-    bottom 2.5%
+    bottom 8%
     box-shadow 0 .75rem .5rem -.65rem black
     content ''
     left -250%
@@ -65,4 +65,28 @@
   &.-experience.goToCredits
     &:before
       animation goToCredits 6.5s .25s forwards
-
+  &.-interactive
+    animation unset
+    background url('../images/characterStop.png') center center no-repeat
+    background-size 100% 100%
+    bottom 8%
+    box-shadow 0 .75rem .5rem -.65rem black
+    height 15%
+    left 10%
+    width .75%
+    z-index 9
+    position absolute
+    &:before
+      content unset
+  &.-interactive.-left
+    background url('../images/characterStopLeft.png') center center no-repeat
+    background-size 100% 100%
+    width 1%
+  &.-interactive.moving
+    background url('../images/walking.gif') center center no-repeat
+    background-size 100% 100%
+    width 1%
+  &.-interactive.movingLeft
+    background url('../images/walkingLeft.gif') center center no-repeat
+    background-size 100% 100%
+    width 1%

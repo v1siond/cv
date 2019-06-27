@@ -21,7 +21,6 @@ export default class About extends Vue {
   @Prop() public levelName!: string | undefined
 
   public mounted () {
-    console.log(this.title, this.levelNumber, this.levelName, this.route)
     this.setTitle(this.title)
     this.setLevelNumber(this.levelNumber)
     this.setLevelName(this.levelName)

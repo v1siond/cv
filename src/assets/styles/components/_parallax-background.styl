@@ -153,7 +153,7 @@
       background-size 100% 100%
       bottom 0
       height 12.5%
-    >.mush-1,
+    > .mush-1,
     > .mush-1-1,
     > .mush-1-2,
     > .mush-2,
@@ -162,12 +162,22 @@
     > .mush-3,
     > .mush-3-1,
     > .mush-3-2,
-    > .mush-1
+    > .mush-1,
+    > .background > .divisions > .mush-1,
+    > .background > .divisions > .mush-1-1,
+    > .background > .divisions > .mush-1-2,
+    > .background > .divisions > .mush-2,
+    > .background > .divisions > .mush-2-1,
+    > .background > .divisions > .mush-2-2,
+    > .background > .divisions > .mush-3,
+    > .background > .divisions > .mush-3-1,
+    > .background > .divisions > .mush-3-2
       opacity .1
       position absolute
       transform scale(.1)
       z-index 4
-    > .mush-1
+    > .mush-1,
+    > .background > .divisions > .mush-1
       animation mushGrowth 1s 2s forwards, mushMove 2.5s 3s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush1.png') center center no-repeat
       background-size 100% 100%
@@ -175,7 +185,8 @@
       height 30%;
       left 8.5%
       width 8%
-    > .mush-1-1
+    > .mush-1-1,
+    > .background > .divisions > .mush-1-1
       animation mushGrowth 1s 2.25s forwards, mushMove 4s 3.25s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush1-1.png') center center no-repeat
       background-size 100% 100%
@@ -183,7 +194,8 @@
       left 17%
       height 20%
       width 4%
-    > .mush-1-2
+    > .mush-1-2,
+    > .background > .divisions > .mush-1-2
       animation mushGrowth 1s 2.5s forwards, mushMove 5.5s 3.5s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush1-2.png') center center no-repeat
       background-size 100% 100%
@@ -192,7 +204,8 @@
       height 22.5%
       width 5%
       transform rotate(10deg)
-    > .mush-2
+    > .mush-2,
+    > .background > .divisions > .mush-2
       animation mushGrowth 1s 2.75s forwards, mushMove 8.5s 3.75s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush2.png') center center no-repeat
       background-size 100% 100%
@@ -200,7 +213,8 @@
       left 31%
       height 30%
       width 10%
-    > .mush-2-1
+    > .mush-2-1,
+    > .background > .divisions > .mush-2-1
       animation mushGrowth 1s 3s forwards, mushMove 5s 4s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush2-1.png') center center no-repeat
       background-size 100% 100%
@@ -208,7 +222,8 @@
       left 46%
       height 25%
       width 8%
-    > .mush-2-2
+    > .mush-2-2,
+    > .background > .divisions > .mush-2-2
       animation mushGrowth 1s 3.25s forwards, mushMove 2.75s 4.25s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush2-2.png') center center no-repeat
       background-size 100% 100%
@@ -216,7 +231,8 @@
       left 43%
       height 12.5%
       width 4%
-    > .mush-3
+    > .mush-3,
+    > .background > .divisions > .mush-3
       animation mushGrowth 1s 3.5s forwards, mushMove 10s 4.5s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush3.png') center center no-repeat
       background-size 100% 100%
@@ -224,7 +240,8 @@
       left 68%
       height 30%
       width 10%
-    > .mush-3-1
+    > .mush-3-1,
+    > .background > .divisions > .mush-3-1
       animation mushGrowth 1s 3.75s forwards, mushMove 6s 4.75s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush3-1.png') center center no-repeat
       background-size 100% 100%
@@ -232,7 +249,8 @@
       left 76%
       height 30%
       width 10%
-    > .mush-3-2
+    > .mush-3-2,
+    > .background > .divisions > .mush-3-2
       animation mushGrowth 1s 4s forwards, mushMove 7s 5s forwards infinite alternate
       background url('../../assets/images/lsdForest/mush3-2.png') center center no-repeat
       background-size 100% 100%
@@ -242,12 +260,16 @@
       width 6%
     > .tree-1,
     > .tree-2,
-    > .tree-3
+    > .tree-3,
+    > .background > .divisions > .tree-1,
+    > .background > .divisions > .tree-2,
+    > .background > .divisions > .tree-3
       opacity .1
       position absolute
       transform scale(.1)
       z-index 4
-    > .tree-1
+    > .tree-1,
+    > .background > .divisions > .tree-1
       animation treeGrowth .5s .5s forwards
       background url('../../assets/images/lsdForest/tree1.png') center center no-repeat
       background-size 100% 100%
@@ -255,7 +277,8 @@
       left 5.5%
       top 52.5%
       width 25%
-    > .tree-2
+    > .tree-2,
+    > .background > .divisions > .tree-2
       animation treeGrowth .5s 1s forwards
       background url('../../assets/images/lsdForest/tree2.png') center center no-repeat
       background-size 100% 100%
@@ -263,7 +286,8 @@
       left 30%
       top 40%
       width 30%
-    > .tree-3
+    > .tree-3,
+    > .background > .divisions > .tree-3
       animation treeGrowth .5s 1.5s forwards
       background url('../../assets/images/lsdForest/tree3.png') center center no-repeat
       background-size 100% 100%
@@ -775,6 +799,39 @@
       background-size 100% 100%
       height 69%
       width 400%
+  &.-interactive.-abilities
+    > .background
+      animation unset
+    > .background-1
+      height 100%
+      > .divisions
+        height 10%
+        position relative
+        top 40%
+      > .divisions:nth-child(4)
+        background none
+        height 100%
+        top 0
+        > .grass
+          background url('../../assets/images/lsdForest/2.png') center center no-repeat
+          background-size 100% 100%
+          height 20%
+          position relative
+          top 78%
+          width 100%
+          z-index 5
+    > .layerBottom
+      background unset
+      flex(center, center)
+      height 100%
+      width 400%
+      > .divisions
+        background url('../../assets/images/lsdForest/1.png') center center no-repeat
+        height 12.5%
+        position relative
+        top 45%
+        width 25%
+
 @keyframes oscill
   0%, 100%
     transform: translate3d(0, -25px, 0)

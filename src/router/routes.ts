@@ -5,33 +5,94 @@ export default [
     name: 'home'
   },
   {
-    path: '/interactive-resume',
     component: () => import('../layouts/InteractiveResume'),
-    name: 'interactiveResume',
+    path: '/interactive-resume',
     children: [
       {
+        path: '/interactive-resume',
+        component: () => import('../pages/interactiveResume/levelSelection'),
+        name: 'interactiveLevelSelection'
+      },
+      {
+        name: 'interactiveAbout',
         component: () => import('../layouts/interactiveResume/About'),
-        path: '/interactive-resume'
+        path: '/interactive-resume/about',
+        children: [
+          {
+            component: () => import('../pages/interactiveResume/about/levelPeresentation'),
+            name: 'interactivePresentation',
+            path: '/interactive-resume/about',
+            props: true
+          },
+          {
+            component: () => import('../pages/interactiveResume/about/abilities'),
+            name: 'interactiveAbilities',
+            path: '/interactive-resume/about/abilities',
+            props: true
+          },
+          {
+            component: () => import('../pages/interactiveResume/about/bornIn'),
+            name: 'interactiveBornIn',
+            path: '/interactive-resume/about/born-in',
+            props: true
+          },
+          {
+            path: '/interactive-resume/about/live-and-work',
+            component: () => import('../pages/interactiveResume/about/liveAndWork'),
+            props: true,
+            name: 'interactiveLiveAndWork'
+          },
+          {
+            name: 'interactiveHobbies',
+            component: () => import('../pages/interactiveResume/about/hobbies'),
+            path: '/interactive-resume/about/hobbies',
+            props: true
+          }
+        ]
       },
       {
-        component: () => import('../pages/interactiveResume/Skills'),
+        component: () => import('../layouts/interactiveResume/Skills'),
         path: '/interactive-resume/skills',
-        props: true
+        props: true,
+        children: [
+          {
+            component: () => import('../pages/interactiveResume/skills/levelPresentation'),
+            name: 'interactiveSkillsPresentation',
+            path: '/interactive-resume/skills',
+            props: true
+          },
+          {
+            component: () => import('../pages/interactiveResume/skills/frontend'),
+            name: 'interactiveFrontend',
+            path: '/interactive-resume/skills/frontend',
+            props: true
+          },
+          {
+            component: () => import('../pages/interactiveResume/skills/backend'),
+            name: 'interactiveBackend',
+            path: '/interactive-resume/skills/backend',
+            props: true
+          }
+        ]
       },
       {
-        component: () => import('../pages/interactiveResume/Experience'),
+        component: () => import('../layouts/interactiveResume/Experience'),
         path: '/interactive-resume/experience',
-        props: true
-      },
-      {
-        component: () => import('../pages/staticResume/Posts'),
-        path: '/static-resume/posts',
-        props: true
-      },
-      {
-        component: () => import('../pages/interactiveResume/Contact'),
-        path: '/interactive-resume/contact',
-        props: true
+        props: true,
+        children: [
+          {
+            component: () => import('../pages/interactiveResume/experience/levelPresentation'),
+            name: 'interactiveExperiencePresentation',
+            path: '/interactive-resume/experience',
+            props: true
+          },
+          {
+            component: () => import('../pages/interactiveResume/experience/Work'),
+            name: 'interactiveWork',
+            path: '/interactive-resume/experience/work/:section?',
+            props: true
+          }
+        ]
       }
     ]
   },
@@ -57,7 +118,7 @@ export default [
           },
           {
             component: () => import('../pages/staticResume/about/abilities'),
-            name: 'aboutPresentation',
+            name: 'abilities',
             path: '/static-resume/about/abilities',
             props: true
           },
