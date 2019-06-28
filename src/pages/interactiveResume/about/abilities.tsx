@@ -30,7 +30,9 @@ export default class Abilities extends Vue {
     background3,
     background4,
     background5,
-    bottom
+    bottom,
+    info,
+    title
   }
 
   public backgroundSound () {
@@ -40,19 +42,28 @@ export default class Abilities extends Vue {
 
   public beforeDestroy () {
     window.removeEventListener('resize', this.listener)
+    window.removeEventListener('keydown', this.moveCharacter)
+    window.removeEventListener('keyup', this.stopCharacter)
   }
 
   public moveCharacter (event: any) {
-    const maxLeft = 300
+    const maxLeft = 200
     const minLeft = 0
     if (this.leftCharacter > 100) {
       this.$router.push('/interactive-resume/about/born-in')
     } else {
       if (event.key === 'ArrowRight') {
-        this.leftCharacter = this.leftCharacter + 0.2
-        this.$refs.interactiveCharacter.style.left = `${this.leftCharacter}%`
+        this.leftCharacter = this.leftCharacter + 0.275
+        this.$refs.interactiveCharacter.style.left = this.$refs.interactiveCharacter && `${this.leftCharacter}%`
         if (!this.$refs.interactiveCharacter.className.includes('moving')) {
           this.$refs.interactiveCharacter.className = `${this.$refs.interactiveCharacter.className.replace('-left', '')} moving`
+        }
+        if (this.left1 > 120) {
+          this.$refs.info.style.display = 'block'
+          this.$refs.title.style.display = 'block'
+          setTimeout(() => {
+            this.$refs.info.style.opacity = 1
+          }, 250)
         }
         if (this.left1 < maxLeft) {
           this.left1 = this.left1 + 0.85
@@ -69,11 +80,20 @@ export default class Abilities extends Vue {
           console.log('moving right')
         }
       } else if (event.key === 'ArrowLeft') {
+        this.leftCharacter = this.leftCharacter > 10 ?  this.leftCharacter - 0.275 : 10
+        this.$refs.interactiveCharacter.style.left = this.$refs.interactiveCharacter && `${this.leftCharacter}%`
         if (!this.$refs.interactiveCharacter.className.includes('movingLeft')) {
           this.$refs.interactiveCharacter.className = `${this.$refs.interactiveCharacter.className.replace('-left', '')} movingLeft`
         }
-        if (this.left1 > minLeft) {
-          this.leftCharacter = this.leftCharacter - 0.2
+        if (this.left1 < 95) {
+          this.$refs.info.style.opacity = 0
+          this.$refs.title.style.opacity = 0
+          setTimeout(() => {
+            this.$refs.info.style.display = 'none'
+            this.$refs.title.style.display = 'none'
+          }, 500)
+        }
+        if (this.left1 > minLeft && this.leftCharacter < 80) {
           this.left1 = this.left1 - 0.85
           this.left2 = this.left2 - 0.5
           this.left3 = this.left3 - 0.35
@@ -85,7 +105,6 @@ export default class Abilities extends Vue {
           this.$refs.background4.style.left = `-${this.left4}%`
           this.$refs.background5.style.left = `-${this.left5}%`
           this.$refs.bottom.style.left = `-${this.left1}%`
-          this.$refs.interactiveCharacter.style.left = `${this.leftCharacter}%`
           console.log('moving left')
         }
       } else {
@@ -109,9 +128,17 @@ export default class Abilities extends Vue {
     this.setLevelName('Abilities')
     this.backgroundSound()
     window.addEventListener('resize', this.listener)
-    window.addEventListener('keydown', (e) => this.moveCharacter(e))
-    window.addEventListener('keyup', () => this.stopCharacter())
+    window.addEventListener('keydown', this.moveCharacter)
+    window.addEventListener('keyup', this.stopCharacter)
+    this.left1 = 0
+    this.left2 = 0
+    this.left3 = 0
+    this.left4 = 0
+    this.left5 = 0
+    this.leftCharacter = 10
+    console.log(this.leftCharacter)
   }
+
   public render (h) {
     return (
       <AbilitiesTemplate router={this.$router} moveCharacter={this.moveCharacter}/>

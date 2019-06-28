@@ -25,11 +25,11 @@ export default ({ props }: any) => {
         <span class='band-member fan' />
       </section>
       <section class='user-panel'>
-        <a onClick={() => props.router.push('/static-resume/about/live-and-work')} class='button -prev'>
+        <a onClick={() => props.router.push('/interactive-resume/about/live-and-work')} class='button -prev'>
           <i class='fas fa-angle-left' />
           LvL 1.3
         </a>
-        <a onClick={() => props.router.push('/static-resume/skills')} class='button -next'>
+        <a onClick={() => props.router.push('/interactive-resume/skills')} class='button -next'>
           LvL 2
           <i class='fas fa-angle-right' />
         </a>

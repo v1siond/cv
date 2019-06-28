@@ -48,11 +48,11 @@ export default ({ props }: any) => {
         <span class='character'/>
       </section>
       <section class='user-panel'>
-        <a onClick={() => props.router.push('/static-resume/about/abilities')} class='button -prev'>
+        <a onClick={() => props.router.push('/interactive-resume/about/abilities')} class='button -prev'>
           <i class='fas fa-angle-left' />
           LvL 1.1
         </a>
-        <a onClick={() => props.router.push('/static-resume/about/live-and-work')} class='button -next'>
+        <a onClick={() => props.router.push('/interactive-resume/about/live-and-work')} class='button -next'>
           LvL 1.3
           <i class='fas fa-angle-right' />
         </a>
