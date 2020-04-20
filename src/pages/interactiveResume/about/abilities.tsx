@@ -77,7 +77,6 @@ export default class Abilities extends Vue {
           this.$refs.background4.style.left = `-${this.left4}%`
           this.$refs.background5.style.left = `-${this.left5}%`
           this.$refs.bottom.style.left = `-${this.left1}%`
-          console.log('moving right')
         }
       } else if (event.key === 'ArrowLeft') {
         this.leftCharacter = this.leftCharacter > 10 ?  this.leftCharacter - 0.275 : 10
@@ -105,7 +104,6 @@ export default class Abilities extends Vue {
           this.$refs.background4.style.left = `-${this.left4}%`
           this.$refs.background5.style.left = `-${this.left5}%`
           this.$refs.bottom.style.left = `-${this.left1}%`
-          console.log('moving left')
         }
       } else {
         this.stopCharacter()
