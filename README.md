@@ -1,4 +1,4 @@
-# asdaq
+# Personal Site
 
 ## Project setup
 ```
